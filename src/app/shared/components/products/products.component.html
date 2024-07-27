@@ -1,0 +1,19 @@
+<div class="row mt-4">
+    <div class=" justify-content-end col-12 d-flex">
+        <mat-icon routerLink="addProduct"  class="addBtn text-primary" fontIcon="add_circle"></mat-icon>
+        <strong class="ml-2">Add Product</strong>
+    </div>
+    <div class="col-md-6">
+        <mat-list class="bg-white p-0" p-0 *ngIf="getProducts ; else noProducts">
+            <h3 matLine class="text-center bg-dark p-2 text-white">Products List</h3>
+            <mat-list-item [routerLink]="prod.pId" *ngFor="let prod of getProducts">
+                <mat-icon class="text-primary" matListIcon>shopping_bag</mat-icon>
+                {{prod.pname}}
+            </mat-list-item>
+        </mat-list>
+
+        <ng-template #noProducts>
+            <span class="text-danger"> No products Available to show ! </span>
+        </ng-template>
+    </div>
+</div>

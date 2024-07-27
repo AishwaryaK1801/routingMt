@@ -1,0 +1,23 @@
+<div class="row mt-4">
+  <div class="justify-content-end col-12 d-flex">
+    <mat-icon
+      routerLink="addUser"
+      class="addBtn text-primary"
+      fontIcon="add_circle"
+    ></mat-icon>
+    <strong class="ml-2">Add Users</strong>
+  </div>
+  <div class="col-md-6">
+    <mat-list class="bg-white p-0" *ngIf="usersData; else noUsers">
+      <h3 matLine class="bg-dark p-1 text-center text-white">Users List</h3>
+      <mat-list-item [routerLink]="user.userId" *ngFor="let user of usersData">
+        <mat-icon class="text-primary" matListIcon>person</mat-icon>
+        {{ user.userName }}
+      </mat-list-item>
+    </mat-list>
+
+    <ng-template #noUsers>
+      <span class="text-danger"> No Users are Available to show ! </span>
+    </ng-template>
+  </div>
+</div>
